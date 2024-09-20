@@ -5,6 +5,8 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+const level = 'off';
+
 export default [
   ...enonicConfig,
   {
@@ -22,11 +24,11 @@ export default [
       //     // allowDefinitionFiles: true,
       //   },
       // ],
-      // '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
-      '@typescript-eslint/no-unsafe-assignment': 'warn',
-      '@typescript-eslint/no-unsafe-call': 'warn',
-      '@typescript-eslint/no-unsafe-member-access': 'warn',
-      '@typescript-eslint/no-unsafe-return': 'warn',
+      // '@typescript-eslint/no-unnecessary-type-assertion': level,
+      '@typescript-eslint/no-unsafe-assignment': level,
+      '@typescript-eslint/no-unsafe-call': level,
+      '@typescript-eslint/no-unsafe-member-access': level,
+      '@typescript-eslint/no-unsafe-return': level,
     }
   },
   {

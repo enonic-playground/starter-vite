@@ -1,29 +1,27 @@
 import {
-    // RESPONSE_CACHE_CONTROL,
+    RESPONSE_CACHE_CONTROL,
     requestHandler,
-    // webAppCacheControl,
+    webAppCacheControl,
     // @ts-expect-error not types
   } from '/lib/enonic/static';
   // @ts-expect-error not types
   import Router from '/lib/router';
   const router = Router();
   router.get('{path:.*}', (request: Request) /* : Response */ => requestHandler({
-    // cacheControl: (
-    //   {
-    //     contentType,
-    //     path,
-    //     resource
-    //   }
-    // ) => {
-    //   if (path.startsWith('/favicon')) {
-    //     return RESPONSE_CACHE_CONTROL.SAFE;
-    //   }
-    //   return webAppCacheControl({
-    //     contentType,
-    //     path,
-    //     resource
-    //   });
-    // },
+    cacheControl: ({
+        contentType,
+        path,
+        resource,
+    }) => {
+      if (path.startsWith('/vite.svg')) {
+        return RESPONSE_CACHE_CONTROL.SAFE;
+      }
+      return webAppCacheControl({
+        contentType,
+        path,
+        resource,
+      });
+    },
     // etag: true,
     request,
     // root: '/static',
